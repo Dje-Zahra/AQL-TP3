@@ -16,13 +16,12 @@ public class UserServiceTest {
         // Création d'un mock pour UserRepository
         UserRepository mockRepository = mock(UserRepository.class);
 
-        // Création d'un utilisateur factice pour simuler le retour du UserRepository
         User fakeUser = new User(27,"Zahra");
 
         // Définition du comportement du mock lors de l'appel de la méthode findUserById avec un certain ID
         when(mockRepository.findUserById(27)).thenReturn(fakeUser);
 
-        // Création de l'instance de UserService avec le mockRepository
+        // mock by constractor
         UserService userService = new UserService(mockRepository);
 
         // Appel de la méthode à tester
@@ -31,7 +30,6 @@ public class UserServiceTest {
         // Vérification que la méthode findUserById du mockRepository est appelée avec le bon argument
         verify(mockRepository).findUserById(27);
 
-        // Ajoutez ici d'autres assertions selon vos besoins
     }
 
 }
